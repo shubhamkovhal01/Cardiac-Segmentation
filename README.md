@@ -29,6 +29,22 @@ that process using a deep learning pipeline.
 | Challenge | Small dataset with large anatomical variability |
 
 ---
+## Dataset Exploration
+
+All 20 training volumes share consistent voxel spacing (1.25 × 1.25 × 1.37 mm).
+The only variation is in the z-axis (slice depth), ranging from 90 to 130 slices.
+
+| Property | Value |
+|---|---|
+| In-plane resolution | 320 × 320 |
+| Voxel spacing (x, y) | 1.25 mm |
+| Voxel spacing (z) | 1.37 mm |
+| Slice depth range | 90 – 130 slices |
+| Intensity range | ~0 – 2200 (raw MRI units) |
+| Spacing consistency | Identical across all 20 patients |
+
+The consistent spacing means **no resampling is required** across patients — 
+a preprocessing step that can be skipped for this dataset.
 
 ## Augmentation Strategy
 
