@@ -1,6 +1,8 @@
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
+
+# add src/ to path — works both locally and in HuggingFace Space
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
 
 import gradio as gr
 import numpy as np
@@ -18,16 +20,11 @@ WEIGHTS_PATH = hf_hub_download(
 )
 
 def segment(nifti_file):
-    """
-    Takes an uploaded NIfTI file, runs inference, returns a multi-slice overlay figure.
-    """
     image_path = nifti_file.name
     mask = predict(image_path, WEIGHTS_PATH)
 
-    # load original image for overlay
     img = nib.load(image_path).get_fdata()
 
-    # pick 3 evenly spaced Z slices that contain atrium predictions
     z_slices_with_pred = np.where(mask.sum(axis=(0, 1)) > 0)[0]
     if len(z_slices_with_pred) == 0:
         z_indices = [img.shape[2] // 2]
