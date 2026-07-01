@@ -1,3 +1,5 @@
+[![HuggingFace Space](https://img.shields.io/badge/🤗-Live%20Demo-blue)](https://huggingface.co/spaces/SSKO2119/cardiac-segmentation)
+
 # Cardiac Left Atrium Segmentation
 
 3D left atrium segmentation from cardiac MRI using SegResNet, trained on the 
