@@ -111,20 +111,6 @@ using the MetaTensor transform history. This ensures the output segmentation mas
 aligns precisely with the original NIfTI file's coordinate system, suitable for 
 clinical overlay or downstream processing.
 
----
-
-## Repository Structure
-cardiac-segmentation/
-├── notebooks/
-│   └── 01_data_exploration.ipynb   # EDA, transforms, training, evaluation
-├── src/
-│   ├── transforms.py               # Preprocessing + inverse transform pipeline
-│   ├── model.py                    # SegResNet definition
-│   └── inference.py                # Full predict() function
-├── app/
-│   ├── app.py                      # Gradio demo
-│   └── requirements.txt
-└── README.md
 
 ---
 
